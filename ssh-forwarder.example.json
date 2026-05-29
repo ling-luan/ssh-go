@@ -1,0 +1,40 @@
+{
+  "profiles": [
+    {
+      "id": "prod-bastion",
+      "name": "Production Bastion",
+      "host": "ssh.example.com",
+      "port": 22,
+      "username": "root",
+      "auth": {
+        "type": "key",
+        "keyPath": "keys/id_rsa"
+      },
+      "hostKeyPolicy": "accept-new",
+      "connectTimeoutSeconds": 8,
+      "keepAliveSeconds": 30
+    }
+  ],
+  "tunnels": [
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "profileId": "prod-bastion",
+      "localHost": "127.0.0.1",
+      "localPort": 3306,
+      "targetHost": "127.0.0.1",
+      "targetPort": 3306,
+      "autoStart": false
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "profileId": "prod-bastion",
+      "localHost": "127.0.0.1",
+      "localPort": 6379,
+      "targetHost": "127.0.0.1",
+      "targetPort": 6379,
+      "autoStart": false
+    }
+  ]
+}

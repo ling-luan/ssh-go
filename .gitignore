@@ -1,0 +1,22 @@
+# Build outputs
+build/
+frontend/dist/
+
+# Local dependencies and generated metadata
+frontend/node_modules/
+frontend/package.json.md5
+
+# Local IDE/editor files
+.idea/
+.vscode/
+
+# Local runtime config and secrets
+/ssh-forwarder.json
+*.pem
+*.key
+known_hosts
+
+# Logs and OS files
+*.log
+Thumbs.db
+.DS_Store
